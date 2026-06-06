@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A polished FIFA World Cup 2026 match predictor.">
+  <title>FIFA 2026 Predictor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="videos/stadium.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
+  <main class="page-shell">
+    <div class="container">
+      <header class="top-bar">
+        <div>
+          <h1>FIFA World Cup 2026 Predictor</h1>
+          <p class="intro-line">Pick two teams and preview a quick match scoreline.</p>
+        </div>
+
+        <button id="themeBtn" class="ghost-button" type="button" aria-label="Toggle color theme">Light</button>
+      </header>
+
+      <section class="match-card" aria-label="Match prediction controls">
+        <div class="teams-container">
+          <div class="team-box">
+            <label for="team1">Home team</label>
+            <select id="team1"></select>
+            <div id="flag1" class="flag-display" aria-hidden="true"></div>
+          </div>
+
+          <div class="versus" aria-hidden="true">
+            <span>VS</span>
+          </div>
+
+          <div class="team-box">
+            <label for="team2">Away team</label>
+            <select id="team2"></select>
+            <div id="flag2" class="flag-display" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <button id="predictBtn" class="primary-button" type="button">
+          Predict Match
+        </button>
+
+        <div class="animation-area" aria-live="polite">
+          <div id="football" class="football">
+            ⚽
+          </div>
+
+          <div id="loadingText" class="loading-text">
+            Simulating match...
+          </div>
+        </div>
+
+        <div class="result-panel">
+          <div id="scorePrediction" class="score-box">Choose two teams to begin</div>
+          <div id="result" class="result"></div>
+        </div>
+      </section>
+
+      <section class="history-panel" aria-label="Prediction history">
+        <div class="section-heading">
+          <p class="eyebrow">Recent predictions</p>
+          <h2>Match History</h2>
+        </div>
+
+        <ul id="history">
+          <li class="empty-history">No predictions yet</li>
+        </ul>
+      </section>
+
+      <div class="copyright">
+        © 2026 completely_random_indian
+      </div>
+    </div>
+  </main>
+
+  <audio id="crowdSound" src="sounds/crowd.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
